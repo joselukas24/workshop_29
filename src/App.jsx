@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import NewPlayerForm from "./components/NewPlayerForm";
 import "./App.css";
 
 const cohortName = "2302-acc-pt-web-pt-b";
@@ -69,19 +70,22 @@ function App() {
   }, []);
 
   return (
-    <div id="all-players-container">
-      {players.map((player) => {
-        return (
-          <div key={player.id} className="player">
-            <h2>{player.name}</h2>
-            <img src={player.imageUrl} alt="" />
-            <br />
-            <button className="details-button">See Details</button>
-            <button className="delete-button">Remove From Roster</button>
-          </div>
-        );
-      })}
-    </div>
+    <>
+      <NewPlayerForm />
+      <div id="all-players-container">
+        {players.map((player) => {
+          return (
+            <div key={player.id} className="player">
+              <h2>{player.name}</h2>
+              <img src={player.imageUrl} alt="" />
+              <br />
+              <button className="details-button">See Details</button>
+              <button className="delete-button">Remove From Roster</button>
+            </div>
+          );
+        })}
+      </div>
+    </>
   );
 }
 
